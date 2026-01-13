@@ -49,6 +49,18 @@ return [
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
+        'microsoft-graph' => [
+            'transport' => 'microsoft-graph',
+            'client_id' => env('GRAPH_CLIENT_ID'),
+            'client_secret' => env('GRAPH_CLIENT_SECRET'),
+            'tenant_id' => env('GRAPH_TENANT_ID'),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS'),
+                'name' => env('MAIL_FROM_NAME'),
+            ],
+            'save_to_sent_items' =>  env('MAIL_SAVE_TO_SENT_ITEMS', false),
+        ],
+
         'ses' => [
             'transport' => 'ses',
         ],
